@@ -1,4 +1,4 @@
-package org.mybatis.generator.plugins;
+package aaron.mybatis.plugins;
 
 import org.mybatis.generator.api.CommentGenerator;
 import org.mybatis.generator.api.IntrospectedColumn;
@@ -16,7 +16,7 @@ import java.util.Set;
 /**
  * MybatisCommentGenerator
  */
-public class MybatisCommentGenerator implements CommentGenerator {
+public class CustomCommentGenerator implements CommentGenerator {
 
     private Properties properties;
     private Properties systemPro;
@@ -24,7 +24,7 @@ public class MybatisCommentGenerator implements CommentGenerator {
     private boolean suppressAllComments;
     private String nowTime;
 
-    public MybatisCommentGenerator() {
+    public CustomCommentGenerator() {
         super();
         properties = new Properties();
         systemPro = System.getProperties();
@@ -40,7 +40,6 @@ public class MybatisCommentGenerator implements CommentGenerator {
      * @param introspectedTable
      * @param markAsDoNotDelete
      */
-    @Override
     public void addClassComment(InnerClass innerClass, IntrospectedTable introspectedTable, boolean markAsDoNotDelete) {
         if (suppressAllComments) {
             return;
@@ -58,7 +57,7 @@ public class MybatisCommentGenerator implements CommentGenerator {
         innerClass.addJavaDocLine(" */");
     }
 
-    @Override
+    
     public void addClassComment(InnerClass innerClass, IntrospectedTable introspectedTable) {
         if (suppressAllComments) {
             return;
@@ -76,7 +75,7 @@ public class MybatisCommentGenerator implements CommentGenerator {
     /**
      * 设置字段注释
      */
-    @Override
+    
     public void addFieldComment(Field field, IntrospectedTable introspectedTable,
             IntrospectedColumn introspectedColumn) {
         if (suppressAllComments) {
@@ -92,7 +91,7 @@ public class MybatisCommentGenerator implements CommentGenerator {
         field.addJavaDocLine(" */");
     }
 
-    @Override
+    
     public void addFieldComment(Field field, IntrospectedTable introspectedTable) {
         if (suppressAllComments) {
             return;
@@ -108,7 +107,7 @@ public class MybatisCommentGenerator implements CommentGenerator {
     /**
      * 设置setter方法注释
      */
-    @Override
+    
     public void addSetterComment(Method method, IntrospectedTable introspectedTable,
             IntrospectedColumn introspectedColumn) {
         if (suppressAllComments) {
@@ -141,7 +140,7 @@ public class MybatisCommentGenerator implements CommentGenerator {
     /**
      * 设置getter方法注释
      */
-    @Override
+    
     public void addGetterComment(Method method, IntrospectedTable introspectedTable,
             IntrospectedColumn introspectedColumn) {
         if (suppressAllComments) {
@@ -170,7 +169,7 @@ public class MybatisCommentGenerator implements CommentGenerator {
         method.addJavaDocLine(" */");
     }
 
-    @Override
+    
     public void addJavaFileComment(CompilationUnit compilationUnit) {
         if (suppressAllComments) {
             return;
@@ -178,17 +177,17 @@ public class MybatisCommentGenerator implements CommentGenerator {
         return;
     }
 
-    @Override
+    
     public void addComment(XmlElement xmlElement) {
         return;
     }
 
-    @Override
+    
     public void addRootComment(XmlElement rootElement) {
         return;
     }
 
-    @Override
+    
     public void addConfigurationProperties(Properties properties) {
         this.properties.putAll(properties);
         suppressDate = Boolean.valueOf(properties.getProperty(PropertyRegistry.COMMENT_GENERATOR_SUPPRESS_DATE));
@@ -220,7 +219,7 @@ public class MybatisCommentGenerator implements CommentGenerator {
         return result;
     }
 
-    @Override
+    
     public void addEnumComment(InnerEnum innerEnum, IntrospectedTable introspectedTable) {
         if (suppressAllComments) {
             return;
@@ -233,7 +232,7 @@ public class MybatisCommentGenerator implements CommentGenerator {
         innerEnum.addJavaDocLine(" */");
     }
 
-    @Override
+    
     public void addGeneralMethodComment(Method method, IntrospectedTable introspectedTable) {
         if (suppressAllComments) {
             return;
@@ -243,39 +242,39 @@ public class MybatisCommentGenerator implements CommentGenerator {
         method.addJavaDocLine(" */");
     }
 
-    @Override
+    
     public void addClassAnnotation(InnerClass arg0, IntrospectedTable arg1, Set<FullyQualifiedJavaType> arg2) {
         // TODO Auto-generated method stub
 
     }
 
-    @Override
+    
     public void addFieldAnnotation(Field arg0, IntrospectedTable arg1, Set<FullyQualifiedJavaType> arg2) {
         // TODO Auto-generated method stub
 
     }
 
-    @Override
+    
     public void addFieldAnnotation(Field arg0, IntrospectedTable arg1, IntrospectedColumn arg2,
             Set<FullyQualifiedJavaType> arg3) {
         // TODO Auto-generated method stub
 
     }
 
-    @Override
+    
     public void addGeneralMethodAnnotation(Method arg0, IntrospectedTable arg1, Set<FullyQualifiedJavaType> arg2) {
         // TODO Auto-generated method stub
 
     }
 
-    @Override
+    
     public void addGeneralMethodAnnotation(Method arg0, IntrospectedTable arg1, IntrospectedColumn arg2,
             Set<FullyQualifiedJavaType> arg3) {
         // TODO Auto-generated method stub
 
     }
 
-    @Override
+    
     public void addModelClassComment(TopLevelClass arg0, IntrospectedTable arg1) {
         // TODO Auto-generated method stub
 

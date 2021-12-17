@@ -1,4 +1,4 @@
-package org.mybatis.generator.plugins;
+package aaron.mybatis.plugins;
 
 import org.mybatis.generator.api.IntrospectedColumn;
 import org.mybatis.generator.api.IntrospectedTable;
@@ -13,10 +13,10 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
-public class LombokPlugin extends PluginAdapter {
+public class LombokAdapter extends PluginAdapter {
     private Properties systemPro;
 
-    public LombokPlugin() {
+    public LombokAdapter() {
         super();
         systemPro = System.getProperties();
     }
@@ -48,7 +48,7 @@ public class LombokPlugin extends PluginAdapter {
 
     public boolean clientGenerated(Interface anInterface, TopLevelClass topLevelClass, IntrospectedTable introspectedTable) {
         anInterface.addJavaDocLine("/**");
-        anInterface.addJavaDocLine(" * @author zhaoke");
+        anInterface.addJavaDocLine(" * @author " + systemPro.getProperty("user.name"));
         anInterface.addJavaDocLine(" * @date " + (new SimpleDateFormat("yyyy/MM/dd hh:mm:ss")).format(new Date()));
         anInterface.addJavaDocLine(" */");
         return true;
